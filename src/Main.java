@@ -17,8 +17,6 @@ public class Main {
     }
 
     public static void readToTree(String filename, BinarySearchTree tree) {
-
-
         try (BufferedReader reader = new BufferedReader(new FileReader(filename))) {
             String line;
             int lineNumber = 1;

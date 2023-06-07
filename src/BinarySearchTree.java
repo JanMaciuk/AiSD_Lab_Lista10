@@ -65,7 +65,6 @@ public class BinarySearchTree {
     }
 
 
-
     public void insert(Word element) { root = insertNode(root, element); }
 
 
@@ -89,7 +88,6 @@ public class BinarySearchTree {
     }
 
 
-
     public void print() {
         System.out.println("Kolejność alfabetyczna:");
         InOrderWalkPrint(root);
@@ -100,7 +98,7 @@ public class BinarySearchTree {
     { //Przegląd in-order, najpierw idę do końca w lewo po drzewie, wyświetlam wartość, i przechodzę do prawej wartości.
         if (root != null) {
             InOrderWalkPrint(root.left);
-            System.out.println(root.element.text + "  -" + root.element.lines + " "); // Todo, tyle spacji żeby wyrównać tekst jak na liście zadań.
+            System.out.println(root.element.text + "  -" + root.element.lines + " ");
             InOrderWalkPrint(root.right);
         }
     }
@@ -111,7 +109,7 @@ public class BinarySearchTree {
     }
 
     private void InOrderWalkAddSpaces(Node root, int longest)
-    { //Przegląd in-order, najpierw idę do końca w lewo po drzewie, wyświetlam wartość, i przechodzę do prawej wartości.
+    { //Przegląd in-order, najpierw idę do końca w lewo po drzewie, dodaje spacje, i przechodzę do prawej wartości.
         if (root != null) {
             while(root.element.text.length() < longest) {
                 root.element.text = root.element.text + " ";
