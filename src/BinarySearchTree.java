@@ -33,8 +33,12 @@ public class BinarySearchTree {
         if (node == null)  { return null; }
 
         //Jeżeli szukana wartość jest inna od wartości obecnego elementu, to szukamy w poddrzewach.
-        if (element.AlphabeticOrder < node.element.AlphabeticOrder)  { node.left = deleteNode(node.left, element); }
-        else if (element.AlphabeticOrder > node.element.AlphabeticOrder)  { node.right = deleteNode(node.right, element); }
+        if (element.text.trim().compareToIgnoreCase(node.element.text.trim()) < 0)  {
+            node.left = deleteNode(node.left, element);
+        }
+        else if (element.text.trim().compareToIgnoreCase(node.element.text.trim()) > 0)  {
+            node.right = deleteNode(node.right, element);
+        }
 
             // Jeżeli wartość nie jest różna, to znaleźliśmy element do usunięcia.
         else {
@@ -67,9 +71,7 @@ public class BinarySearchTree {
 
     public void insert(Word element) { root = insertNode(root, element); }
 
-
-    private Node insertNode(Node node, Word element)
-    {
+    private Node insertNode(Node node, Word element)  {
         // Kiedy dojdę do końca drzewa, dodaje nowy węzeł.
         if (node == null) {
             node = new Node(element);
@@ -77,9 +79,9 @@ public class BinarySearchTree {
         }
 
         // przechodzę do odpowiedniego poddrzewa, jeżeli będzie ono null, to dodam nowy węzeł.
-        if (element.AlphabeticOrder < node.element.AlphabeticOrder)
+        if (element.text.trim().compareToIgnoreCase(node.element.text.trim()) < 0)
             node.left = insertNode(node.left, element);
-        else if (element.AlphabeticOrder > node.element.AlphabeticOrder)
+        else if (element.text.trim().compareToIgnoreCase(node.element.text.trim()) > 0)
             node.right = insertNode(node.right, element);
 
         //Nie uwzględniam duplikatów, więc jeżeli wartość już istnieje, to nic nie robię.
